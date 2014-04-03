@@ -28,6 +28,25 @@ $(function(){
 
 /* prevent the-alligator form from submitting */
 $(function(){
+
+    $('#results').dataTable({
+        "aoColumnDefs": [ {
+          "aTargets": [ 1 ],
+          "mRender": function ( data, type, full ) {
+            return data.toString().toHHMMSS();
+          }
+        } ],
+        'fnDrawCallback': function( oData ) {
+            var total_events = 0, total_time = 0;
+            for(var i=0; i<oData.aiDisplay.length; i++) {
+                var row_data = oData.aoData[oData.aiDisplay[i]]._aData;
+                total_events += row_data[2];
+                total_time += row_data[1];
+            }
+            $(this).find('tfoot #total_events').html(total_events);
+            $(this).find('tfoot #total_time').html(total_time.toString().toHHMMSS());
+        }
+    });
     $('form#the-alligator').on('submit', function(event){
         event.preventDefault();
         render(parse_food($(this).find('#food').val()));
@@ -286,4 +305,5 @@ $(function(){
         $food_tray.css({'position': 'absolute'});
         $spit.css({'position': 'absolute'});
     };
+
 
