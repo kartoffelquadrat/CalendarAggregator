@@ -29,7 +29,11 @@ $(function(){
 /* prevent the-alligator form from submitting */
 $(function(){
 
-    $('#results').dataTable({
+    $('#spit').css({
+        'opacity': 1,
+        'display': 'block'
+    });
+    var oTable = $('#results').dataTable({
         "aoColumnDefs": [ {
           "aTargets": [ 1 ],
           "mRender": function ( data, type, full ) {
@@ -45,8 +49,18 @@ $(function(){
             }
             $(this).find('tfoot #total_events').html(total_events);
             $(this).find('tfoot #total_time').html(total_time.toString().toHHMMSS());
+        },
+        "sDom": 'T<"clear">lfrtip',
+        "oTableTools": {
         }
     });
+    setTimeout(function(){
+        $('#spit').css({
+            'opacity': 0,
+            'display': 'none'
+        });
+    }, 200);
+
     $('form#the-alligator').on('submit', function(event){
         event.preventDefault();
         render(parse_food($(this).find('#food').val()));

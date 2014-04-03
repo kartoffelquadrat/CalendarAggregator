@@ -18,7 +18,9 @@
 
     <script src="/js/jquery-1.10.2.min.js"></script>
     <script src="/js/jquery.dataTables.min.js"></script>
+    <script src="/js/dataTables.tableTools.min.js"></script>
     <link href="/css/datatables/jquery.dataTables.css" rel="stylesheet">
+    <link href="/css/datatables/dataTables.tableTools.min.css" rel="stylesheet">
 
     <link href="/css/main.css" rel="stylesheet">
     <script src="/js/plugins.js"></script>
@@ -50,6 +52,7 @@
                 <li class="active"><a href="#">What</a></li>
                 <li><a href="#how">How</a></li>
                 <li><a href="#the-swamp">The Swamp</a></li>
+                <li><a href="#caveat">Caveat</a></li>
                 <li><a href="#about">About</a></li>
             </ul>
         </div>
@@ -66,13 +69,13 @@
                 <img src="/img/logo.png" alt="logo" id="logo" />
             </div>
             <div class="col-sm-6">
-                <h1>iCal Alligator</h1>
+                <h1>iCalligator</h1>
 
-                <p>Time aggregator for iCal</p>
+                <p>Time aggregator for iCal!</p>
 
                 <p>Paste from iCal and get a summarized table of your calendar entries.</p>
 
-                <p><a href="#the-swamp" class="btn btn-primary btn-lg" role="button">Take me to the swamp! &raquo;</a></p>
+                <p><a href="#the-swamp" class="btn btn-primary btn-lg" role="button">Take me to The Swamp! &raquo;</a></p>
 
                 <p>Yeah, I keep my project time logs in iCal! Sometimes. So what?</p>
 
@@ -89,6 +92,19 @@
         come an iCalligator, chew it all up and spit out aggregated time table.
     </p>
 
+    <p class="text-center">
+        <img src="img/instructions.png" alt="screenshot" />
+        <img src="img/instructions2.png" alt="screenshot" />
+    </p>
+
+    <p>
+        After the loborious task of clicking around, PASTE it here and anjoy!
+    </p>
+
+    <p>
+        And what then, you ask? <br />
+        Oh, well... you can copy the resulting table. And paste it somewhere. I don't know... To a spreadsheet, perhaps.
+    </p>
 
 
     <div class="page-header" id="the-swamp">
@@ -97,7 +113,7 @@
     <form action="" method="POST" id="the-alligator">
         <div id="food-tray">
             <div class="form-group">
-                <label for="food">Here paste the food for the iCalligator:</label>
+                <label for="food">Here paste food for the iCalligator:</label>
                 <textarea name="food" id="food" class="form-control" rows="10"></textarea>
             </div>
             <div class="form-group">
@@ -130,9 +146,48 @@
         </div>
     </form>
 
+    <div class="page-header" id="caveat">
+        <h1>Caveat</h1>
+    </div>
+
+    <p>
+        Only works for the following time format:
+    </p>
+    <pre>Event A
+Scheduled: 19.02. 2014. 13:30:00  to 15:00:00</pre>
+    <p>
+        I suspect this format changes with different locale settings. Would you like some additional format to be supported? <a href="http://changeset.hr/contact">Contact me</a>
+    </p>
+
+
     <div class="page-header" id="about">
         <h1>About</h1>
     </div>
+
+    <p>
+        Made by frnhr.
+    </p>
+    <p>
+        Very quickly. Not being elegant. At all. Much to improve. But probably never will. Because it works. And it's not a work of art. And I'm not a frontend dev.
+    </p>
+    <p>
+        Using:
+    </p>
+    <ul>
+        <li>jQuery</li>
+        <li>jQuery.dataTables</li>
+        <li>Bootstrap</li>
+    </ul>
+
+    <p>
+        Oh, P.S:
+    </p>
+    <p>
+        It's completely browser-side JS, nothing gets sent to the server. So your privacy is safe. Really. If you don't believe me, that's ok, you can unplug from the internet and it will still work.
+    </p>
+    <p>
+        The only piece of info that gets recorded is a visit, by Google Analytics. That way I have some idea if anyone other then me is using this app. I hope that's ok.
+    </p>
 
     <div id="mud-on-the-bottom-of-the-marsh">
         <!-- there is always mud on the bottom... makes the scrolling smoother... -->
@@ -146,5 +201,22 @@
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="/js/bootstrap.min.js"></script>
+
+
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36500330-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
 </body>
 </html>
