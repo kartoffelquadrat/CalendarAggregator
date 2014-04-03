@@ -1,42 +1,122 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <title>iCalligator</title>
 
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/main.css">
-        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
-    </head>
-    <body>
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
+    <!-- Bootstrap core CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap theme -->
+    <link href="/css/bootstrap-theme.min.css" rel="stylesheet">
 
-        <!-- Add your site or application content here -->
-        <p>Hello world! This is HTML5 Boilerplate.</p>
+    <script src="/js/jquery-1.10.2.min.js"></script>
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
-        <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
+    <link href="/css/main.css" rel="stylesheet">
+    <script src="/js/plugins.js"></script>
+    <script src="/js/main.js"></script>
 
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-        <script>
-            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-            e.src='//www.google-analytics.com/analytics.js';
-            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-XXXXX-X');ga('send','pageview');
-        </script>
-    </body>
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body role="document">
+
+<!-- Fixed navbar -->
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">iCalligator</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">What</a></li>
+                <li><a href="#how">How</a></li>
+                <li><a href="#the-swamp">The Swamp</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </div>
+        <!--/.nav-collapse -->
+    </div>
+</div>
+
+<div class="container theme-showcase" role="main">
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+        <div class="row" id="home">
+            <div class="col-sm-6">
+                <img src="/img/logo.png" alt="logo" id="logo" />
+            </div>
+            <div class="col-sm-6">
+                <h1>iCal Alligator</h1>
+
+                <p>Time aggregator for iCal</p>
+
+                <p>Paste from iCal and get a summarized table of your calendar entries.</p>
+
+                <p><a href="#the-swamp" class="btn btn-primary btn-lg" role="button">Take me to the swamp! &raquo;</a></p>
+
+                <p>Yeah, I keep my project time logs in iCal! Sometimes. So what?</p>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="page-header" id="how">
+        <h1>How</h1>
+    </div>
+    <p>
+        Simply select any number of iCal events from and paste them in <a href="#the-swamp">The Swamp</a>. Then there will
+        come an iCalligator, chew it all up and spit out aggregated time table.
+    </p>
+
+
+    <div class="page-header" id="the-swamp">
+        <h1>The Swamp</h1>
+    </div>
+    <form action="" method="POST" id="the-alligator">
+        <div class="form-group">
+            <label for="food">Here paste the food for the iCalligator:</label>
+            <textarea name="food" id="food" class="form-control" rows="10"></textarea>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-success">Call the Alligator!</button>
+        </div>
+    </form>
+
+    <div class="page-header" id="about">
+        <h1>About</h1>
+    </div>
+
+    <div id="mud-on-the-bottom-of-the-marsh">
+        <!-- there is always mud on the bottom... makes the scrolling smoother... -->
+    </div>
+
+</div>
+<!-- /container -->
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+</body>
 </html>

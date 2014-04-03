@@ -21,4 +21,8 @@
     }
 }());
 
-// Place any jQuery/helper plugins in here.
+// Implement string trim() if not already there
+
+if (!String.prototype.trim) {
+    String.prototype.trim=function(){return this.replace(/^\s+|\s+$/g, '');};
+}
