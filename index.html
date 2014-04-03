@@ -95,12 +95,14 @@
         <h1>The Swamp</h1>
     </div>
     <form action="" method="POST" id="the-alligator">
-        <div class="form-group">
-            <label for="food">Here paste the food for the iCalligator:</label>
-            <textarea name="food" id="food" class="form-control" rows="10"></textarea>
-        </div>
-        <div class="form-group">
-            <button type="submit" class="btn btn-success">Call the Alligator!</button>
+        <div id="food-tray">
+            <div class="form-group">
+                <label for="food">Here paste the food for the iCalligator:</label>
+                <textarea name="food" id="food" class="form-control" rows="10"></textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-success">Call the Alligator!</button>
+            </div>
         </div>
         <div id="spit">
             <table cellpadding="0" cellspacing="0" border="0" class="display" id="results">
@@ -114,6 +116,9 @@
                 <tbody>
                 </tbody>
             </table>
+            <div class="form-group">
+                <button class="btn btn-info" id="reset">Reset</button>
+            </div>
         </div>
     </form>
 

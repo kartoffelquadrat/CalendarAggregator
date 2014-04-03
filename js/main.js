@@ -30,9 +30,12 @@ $(function(){
 $(function(){
     $('form#the-alligator').on('submit', function(event){
         event.preventDefault();
-
         render(parse_food($(this).find('#food').val()));
-    })
+    });
+    $('form#the-alligator #reset').on('click', function(event){
+        event.preventDefault();
+        reset();
+    });
 });
 
 
@@ -252,5 +255,35 @@ $(function(){
                 ]);
             }
         }
+
+        var $alligator = $('#the-alligator');
+        var $food_tray = $alligator.find('#food-tray');
+        var $spit = $alligator.find('#spit');
+
+        $spit.show();
+        $alligator.animate({'height': $spit.height()}, 500);
+        $spit.css({'opacity': 0});
+        $food_tray.animate({'opacity': 0}, 500);
+        $spit.animate({'opacity': 1}, 500, function(){
+            $('#food').val('');
+        });
+        $spit.css({'position': 'absolute'});
+        $food_tray.css({'position': 'absolute'});
+    };
+
+
+    var reset = function(aggregate) {
+
+        var $alligator = $('#the-alligator');
+        var $food_tray = $alligator.find('#food-tray');
+        var $spit = $alligator.find('#spit');
+
+        $food_tray.show();
+        $alligator.animate({'height': $food_tray.height()}, 500);
+        $food_tray.css({'opacity': 0});
+        $spit.animate({'opacity': 0}, 500, function(){$spit.hide();});
+        $food_tray.animate({'opacity': 1}, 500);
+        $food_tray.css({'position': 'absolute'});
+        $spit.css({'position': 'absolute'});
     };
 

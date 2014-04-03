@@ -309,6 +309,23 @@ textarea {
     max-width: 100%;
 }
 
+#the-alligator {
+    position: relative;
+}
+
+#food-tray {
+    width: 100%;
+}
+#spit {
+    position: absolute;
+    opacity: 0;
+    display: none;
+    width: 100%;
+}
+#spit .form-group {
+    clear: both;
+    padding-top: 1em;
+}
 
 #mud-on-the-bottom-of-the-marsh {
     margin-bottom: 300px;
