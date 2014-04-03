@@ -241,6 +241,16 @@ $(function(){
 
 
     var render = function(aggregate) {
-        $('#spit').html(JSON.stringify(aggregate));
+        var $results = $('#results');
+        $results.dataTable().fnClearTable();
+        for(var key in aggregate) {
+            if (aggregate.hasOwnProperty(key)){
+                $results.dataTable().fnAddData([
+                    key,
+                    aggregate[key]['seconds'],
+                    aggregate[key]['events'].length
+                ]);
+            }
+        }
     };
 
