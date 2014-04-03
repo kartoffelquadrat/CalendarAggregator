@@ -31,7 +31,7 @@ $(function(){
     $('form#the-alligator').on('submit', function(event){
         event.preventDefault();
 
-        parse_food($(this).find('#food').val());
+        render(parse_food($(this).find('#food').val()));
     })
 });
 
@@ -168,7 +168,6 @@ $(function(){
 
         CalEvent.prototype.seconds = TimeInterval.prototype.seconds;
 
-
         return CalEvent;
     })();
 
@@ -178,7 +177,7 @@ $(function(){
 
     var parse_food = function(food) {
         var lines = food.split(/\n/);
-        var events = [];
+        var events = [], aggregate = {};
         var i, time_strings;
 
 
@@ -205,6 +204,7 @@ $(function(){
 
 
         var last_row = 'empty';
+        var tp_start, tp_stop;
         for (i=0; i<lines.length; i++) {
             var line = lines[i];
             if (! line.trim().length) {
@@ -218,15 +218,29 @@ $(function(){
             if (last_row instanceof CalEvent) {
                 line = line.trim().replace('Scheduled: ', '');
                 time_strings = line.split('  to ');
-
                 tp_start = TimePoint(parse_ical_datetime(time_strings[0]));
                 tp_stop = TimePoint(tp_start, parse_ical_datetime(time_strings[1]));
                 last_row.set_start(tp_start);
                 last_row.set_stop(tp_stop);
                 events.push(last_row);
+                last_row = false;
             }
         }
 
-        console.info(events);
+        for (i=0; i<events.length; i++) {
+            var event = events[i];
+            if (typeof aggregate[event.name] === 'undefined') {
+                aggregate[event.name] = {'seconds': 0, 'events': []};
+            }
+            aggregate[event.name]['seconds'] += event.seconds();
+            aggregate[event.name]['events'].push(event);
+        }
+
+        return aggregate;
+    };
+
+
+    var render = function(aggregate) {
+        $('#spit').html(JSON.stringify(aggregate));
     };
 
