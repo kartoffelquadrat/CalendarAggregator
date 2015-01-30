@@ -219,7 +219,10 @@ $(function(){
 
         var DATETIME_FORMAT = $('#datetime_format :selected').data('datetimeformat');
         var TIME_FORMAT = $('#datetime_format :selected').data('timeformat');
+        //TODO: allow custom format
+        //TODO: recall last selected format from a cookie
 
+        // TODO allow other languages ("to" and "Scheduled:")
         var SEPARATOR = ' to ';
 
         var parse_ical_datetime = function(datetime) {
@@ -231,6 +234,7 @@ $(function(){
             }
             if (!the_moment.isValid()) {
 console.warn("cant parse: " + datetime);
+                //TODO: report the error to user and skip this entry
             }
 
             var data_arr = datetime.split(' ');
