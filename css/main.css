@@ -330,3 +330,7 @@ textarea {
 #mud-on-the-bottom-of-the-marsh {
     margin-bottom: 300px;
 }
+
+img {
+    max-width: 100%;
+}
