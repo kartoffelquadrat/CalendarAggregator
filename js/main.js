@@ -217,24 +217,33 @@ $(function(){
         var i, time_strings;
 
 
+        var DATETIME_FORMAT = $('#datetime_format :selected').data('datetimeformat');
+        var TIME_FORMAT = $('#datetime_format :selected').data('timeformat');
+
+        var SEPARATOR = ' to ';
+
         var parse_ical_datetime = function(datetime) {
+            var the_moment = moment(datetime, TIME_FORMAT, true); // strict
+            var what_data = 'time';
+            if (!the_moment.isValid()) {
+                the_moment = moment(datetime, DATETIME_FORMAT, true); // strict
+                what_data = 'datetime';
+            }
+            if (!the_moment.isValid()) {
+console.warn("cant parse: " + datetime);
+            }
+
             var data_arr = datetime.split(' ');
             var data = {};
             var day_month, year, tim, tim_arr;
-            if (data_arr.length === 3) {
-                day_month = data_arr[0].split('.');
-                data['day'] = day_month[0];
-                data['month'] = day_month[1];
-                year = data_arr[1].split('.');
-                data['year'] = year[0];
-                tim = data_arr[2];
-            } else {
-                tim = data_arr[0];
+            if (what_data == 'datetime') {
+                data['day'] = the_moment.format('D');
+                data['month'] = the_moment.format('M');
+                data['year'] = the_moment.format('YYYY');
             }
-            tim_arr = tim.split(':');
-            data['hour'] = tim_arr[0];
-            data['min'] = tim_arr[1];
-            data['sec'] = tim_arr[2];
+            data['hour'] = the_moment.format('H');
+            data['min'] = the_moment.format('m');
+            data['sec'] = the_moment.format('s');
             return data;
         };
 
@@ -253,7 +262,7 @@ $(function(){
             }
             if (last_row instanceof CalEvent) {
                 line = line.trim().replace('Scheduled: ', '');
-                time_strings = line.split('  to ');
+                time_strings = line.split(SEPARATOR);
                 tp_start = TimePoint(parse_ical_datetime(time_strings[0]));
                 tp_stop = TimePoint(tp_start, parse_ical_datetime(time_strings[1]));
                 last_row.set_start(tp_start);
