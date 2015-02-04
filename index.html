@@ -33,6 +33,31 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    <!-- the idiotic EU cookie thing -->
+    <script src="/js/jquery.cookiebar.js"></script>
+    <link href="/css/jquery.cookiebar.css" rel="stylesheet">
+    <script type="text/javascript">
+        $(function(){
+            $.cookieBar({
+                fixed: true,
+                message: '<strong>DANGER! DANGER! DANGER!</strong> This site uses <a href="http://en.wikipedia.org/wiki/HTTP_cookie" target="_blank" style="font-weight: bold; padding: 0; margin: 0; text-decoration: underline;">COOKIES</a>!!!! It tracks usage and preferences!'
+            });
+        });
+    </script>
+    <style type="text/css">
+        #cookie-bar.fixed {
+            z-index: 10000;
+            min-height: 50px;
+            height: auto;
+            padding: 0 5px;
+        }
+        #cookie-bar p {
+            margin: 11px 0;
+            padding: 0;
+        }
+    </style>
+
 </head>
 
 <body role="document">
