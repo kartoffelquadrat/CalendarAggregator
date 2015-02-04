@@ -334,3 +334,12 @@ textarea {
 img {
     max-width: 100%;
 }
+
+
+#the-alligator button.btn-success {
+    margin: 20px 0;
+}
+
+#custom_box {
+    margin-top: 15px;
+}
