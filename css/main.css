@@ -328,7 +328,7 @@ textarea {
 }
 
 #mud-on-the-bottom-of-the-marsh {
-    margin-bottom: 300px;
+    margin-bottom: 200px;
 }
 
 img {
@@ -342,4 +342,9 @@ img {
 
 #custom_box {
     margin-top: 15px;
+}
+
+.footfootfooter {
+    text-align: center;
+    color: #777777;
 }
