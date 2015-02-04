@@ -16,6 +16,7 @@
     <!-- Bootstrap theme -->
     <link href="/css/bootstrap-theme.min.css" rel="stylesheet">
 
+    <script src="/js/json2.js"></script>
     <script src="/js/jquery-1.10.2.min.js"></script>
     <script src="/js/jquery.dataTables.min.js"></script>
     <script src="/js/moment.js"></script>
@@ -123,11 +124,24 @@
             </div>
             <div class="form-group row">
                 <div class="col-sm-6">
-                    <h4>Select your format:</h4>
-                    <select id="datetime_format">
-                        <option data-datetimeformat='D MMMM YYYY h:mm:ss a' data-timeformat="h:mm:ss a">19 May 2014 8:45:00 am to 12:45:00 pm</option>
-                        <option data-datetimeformat='MMM D, YYYY, h:mm:ss a' data-timeformat="h:mm:ss a">Jun 5, 2014, 12:30:00 PM to 3:00:00 PM</option>
+                    <label for="datetime_format">Select your format: </label><select class="form-control" id="datetime_format">
+                        <option value="1" data-datetimeformat='D MMMM YYYY h:mm:ss a' data-timeformat="h:mm:ss a">19 May 2014 8:45:00 am</option>
+                        <option value="2" data-datetimeformat='MMM D, YYYY, h:mm:ss a' data-timeformat="h:mm:ss a">Jun 5, 2014, 12:30:00 PM</option>
+                        <option value="3" data-datetimeformat='DD.MM. YYYY. HH:mm' data-timeformat="HH:mm">01.12 2015. 09:45</option>
+                        <option value="custom" data-datetimeformat="custom" data-timeformat="custom">custom</option>
                     </select>
+                    <div id="custom_box">
+                        <p>please specify custom format using syntax from <a href="http://momentjs.com/docs/#/displaying/format/" target="_blank">moment.js specification</a> </p>
+                        <label>date and time:
+                            <input type="text" class="form-control" id="custom_datetime" size="35" placeholder="MMM D, YYYY, h:mm:ss a" title="MMM D, YYYY, h:mm:ss a" />
+                        </label>
+                        <label>time:
+                            <input type="text" class="form-control" id="custom_time" size="15" placeholder="h:mm:ss a" title="h:mm:ss a" />
+                        </label>
+                        <p>
+                            Using a custom format? <a href="http://changeset.hr/contact" target="_blank">Let me know</a>, and I'll add it to the list above.
+                        </p>
+                    </div>
                 </div>
                 <div class="col-sm-6">
                     <button type="submit" class="btn btn-success">Call the Alligator!</button>
@@ -163,14 +177,21 @@
     <div class="page-header" id="caveat">
         <h1>Caveat</h1>
     </div>
-
+    <h3><del>other formats</del></h3>
     <p>
-        Only works for the following time format:
+        <del>Only works for the following time format:</del>
     </p>
-    <pre>Event A
-Scheduled: 19.02. 2014. 13:30:00  to 15:00:00</pre>
+    <del><pre>Event A
+Scheduled: 19.02. 2014. 13:30:00  to 15:00:00</pre></del>
+
+    <h3>overlapping events</h3>
     <p>
-        I suspect this format changes with different locale settings. Would you like some additional format to be supported? <a href="http://changeset.hr/contact">Contact me</a>
+        Does not check for overlapping entries. Meaning if you have two simultaneous entries in the calendar, they'll get added together just as if they were consecutive. This might be desired or might not.
+    </p>
+
+    <h3>something else?</h3>
+    <p>
+        Found a bug? Format not working? Need a feature added? <a href="http://changeset.hr/contact" target="_blank">Contact me</a> and I'll see what I can do.
     </p>
 
 
@@ -189,9 +210,11 @@ Scheduled: 19.02. 2014. 13:30:00  to 15:00:00</pre>
     </p>
     <ul>
         <li><a href="http://jquery.com/" target="_blank">jQuery</a></li>
+        <li><a href="http://momentjs.com/" target="_blank">Moment.js</a></li>
         <li><a href="http://datatables.net/" target="_blank">DataTables</a></li>
         <li><a href="http://datatables.net/extras/tabletools/" target="_blank">TableTools</a></li>
         <li><a href="http://getbootstrap.com/" target="_blank">Bootstrap</a></li>
+        <li><a href="https://github.com/carhartl/jquery-cookie" target="_blank">jQuery Cookie Plugin</a></li>
     </ul>
     <p>And of course:</p>
     <ul>
