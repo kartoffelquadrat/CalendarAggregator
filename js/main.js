@@ -230,7 +230,9 @@ $(function(){
 
     var fetch_config_from_cookie = function() {
         var format_config = $.cookie('format_config');
-        config_unpack(JSON.parse(format_config));
+        if (typeof format_config !== 'undefined') {
+            config_unpack(JSON.parse(format_config));
+        }
     };
 
     var save_config_to_cookie = function() {
