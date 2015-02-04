@@ -302,3 +302,49 @@ textarea {
         page-break-after: avoid;
     }
 }
+
+
+
+#logo {
+    max-width: 100%;
+}
+
+#the-alligator {
+    position: relative;
+}
+
+#food-tray {
+    width: 100%;
+}
+#spit {
+    position: absolute;
+    opacity: 0;
+    display: none;
+    width: 100%;
+}
+#spit .form-group {
+    clear: both;
+    padding-top: 1em;
+}
+
+#mud-on-the-bottom-of-the-marsh {
+    margin-bottom: 200px;
+}
+
+img {
+    max-width: 100%;
+}
+
+
+#the-alligator button.btn-success {
+    margin: 20px 0;
+}
+
+#custom_box {
+    margin-top: 15px;
+}
+
+.footfootfooter {
+    text-align: center;
+    color: #777777;
+}
