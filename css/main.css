@@ -350,8 +350,8 @@ img {
 }
 
 .ork_me {
-    position: fixed;
-    top: 0;
+    position: absolute;
+    top: 50px;
     right: 0;
     display: block;
     width: 149px;
