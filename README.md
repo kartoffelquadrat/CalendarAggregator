@@ -2,7 +2,7 @@
 
 ## About
 
-[Original version](http://icalligator.changeset.hr/) (was not able to correclty parse anything with that)
+[Original version](http://icalligator.changeset.hr/) (was not able to correctly parse anything with that)
 
 ## Changelog
 
