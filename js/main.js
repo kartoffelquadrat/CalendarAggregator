@@ -291,6 +291,8 @@ var parse_food = function(food) {
         TIME_FORMAT = $('#custom_time').val();
     }
 
+    console.log("Format: "+DATETIME_FORMAT);
+
     // TODO allow other languages ("to" and "Scheduled:")
     var SEPARATOR = ' to ';
 
@@ -336,10 +338,22 @@ var parse_food = function(food) {
             continue;
         }
         if (last_row instanceof CalEvent) {
+            // Removed the "Scheduled: " prefix
             line = line.trim().replace('Scheduled: ', '');
+
+            // Splits at "to"
             time_strings = line.split(SEPARATOR);
-            tp_start = TimePoint(parse_ical_datetime(time_strings[0]));
-            tp_stop = TimePoint(tp_start, parse_ical_datetime(time_strings[1]));
+
+            // Fix start and end string so that it can be correctly parsed... // does not support events that span over multiple days.
+            prefix = time_strings[0].split('at')[0].trim();
+            starttime = time_strings[0].split('at')[1].trim();
+
+            //time_strings[0] = time_strings[0].replace('at ', ''); // remove the "at".
+            time_strings[0] = prefix+' '+starttime;
+            time_strings[1] = prefix+' '+time_strings[1].trim();
+
+            tp_start = TimePoint(parse_ical_datetime(time_strings[0])); // fails
+            tp_stop = TimePoint(tp_start, parse_ical_datetime(time_strings[1])); //fails
             last_row.set_start(tp_start);
             last_row.set_stop(tp_stop);
             events.push(last_row);
