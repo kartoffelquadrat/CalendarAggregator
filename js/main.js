@@ -277,8 +277,10 @@ $(function(){
 });
 
 
-/* parse the alligator food */
-
+/**
+ * Parses the user input.
+ * @param food the text pasted from the calendar. Every event is described by two lines, second line always starts with "Scheduled" and defines the event time range, separated by "to"
+ */
 var parse_food = function(food) {
     var lines = food.split(/\n/);
     var events = [], aggregate = {};
@@ -296,6 +298,7 @@ var parse_food = function(food) {
     // TODO allow other languages ("to" and "Scheduled:")
     var SEPARATOR = ' to ';
 
+    // defines custom function to parse time strings in variable. Is not yet invoked here.
     var parse_ical_datetime = function(datetime) {
         datetime = datetime.trim();
         var the_moment = moment(datetime, TIME_FORMAT, true); // strict
@@ -338,6 +341,10 @@ var parse_food = function(food) {
             continue;
         }
         if (last_row instanceof CalEvent) {
+
+            // Remove TimeZone. JS parse can not handle it reliably
+            line = line.split(', GMT')[0];
+
             // Removed the "Scheduled: " prefix
             line = line.trim().replace('Scheduled: ', '');
 
