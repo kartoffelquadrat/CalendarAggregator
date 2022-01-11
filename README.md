@@ -8,16 +8,18 @@
 
  * Removed google-analytics call
  * Tidied up UI
-   * Removed banners, commercials, confusing text
+   * Removed banners, commercials, google analytics, confusing text
    * Removed not-working date formats
- * Fixed parsing of date strings, sample format: *Oct 15, 2020 at 13:45 to 15:00*
+   * Added instructions
 
 ## Usage
 
+ * Open [the Aggregator webpage](index.html)
  * Open Mac OS Calendar app.
  * Make sure only the calendar you are interested in is selected.
- * Switch to monthly view, hit CMD+A
- * Paste into fields below, hit the green button
+ * Switch to monthly view, hit CMD+A, CMD+C
+ * Paste into fields below, hit the green button  
+ > Make sure the pasted format looks like this: ```Scheduled: Jan 29, 2021 at 09:30 AM to 10:00 AM```. Disable the 24h in mac os settings if needed. Time Zones can be ignored, they are automatically removed.
  * Click print, export as PDF
 
 ## Origins / Pull Requests
